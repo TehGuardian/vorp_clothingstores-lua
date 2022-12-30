@@ -30,7 +30,7 @@ Locales["En"] = {
     ButtonSpecifyComp = "Goto",						-- Disregard, for upcoming update
 	WrongInputType = "Only numbers are allowed",	-- Disregard, for upcoming update
 	OutOfRange = "Value is out of range, max: ",	-- Disregard, for upcoming update
-	
+
     Finish = "Complete Purchase",
 	SelectOutfit = "Confirm Outfit Selection",
 	FinishDesc = "Make sure you have chosen everything correctly.",

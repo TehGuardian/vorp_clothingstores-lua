@@ -3,8 +3,7 @@ TriggerEvent("getCore", function(core)
 	VORPcore = core
 end)
 
-RegisterNetEvent('vorpclothingstore:getPlayerCloths')
-AddEventHandler('vorpclothingstore:getPlayerCloths', function(result)
+RegisterNetEvent('vorpclothingstore:getPlayerCloths', function(result)
 	local _source = source
 	local Character = VORPcore.getUser(_source).getUsedCharacter
 	local charIdentifier = Character.charIdentifier
@@ -32,8 +31,7 @@ AddEventHandler('vorpclothingstore:getPlayerCloths', function(result)
 	end
 end)
 
-RegisterNetEvent('vorpclothingstore:buyPlayerCloths')
-AddEventHandler('vorpclothingstore:buyPlayerCloths', function(totalCost, jsonCloths, saveOutfit, outfitName)
+RegisterNetEvent('vorpclothingstore:buyPlayerCloths', function(totalCost, jsonCloths, saveOutfit, outfitName)
 	local _source = source
 	local Character = VORPcore.getUser(_source).getUsedCharacter
 	local sid = nil;
@@ -66,16 +64,14 @@ AddEventHandler('vorpclothingstore:buyPlayerCloths', function(totalCost, jsonClo
 	end
 end)
 
-RegisterNetEvent('vorpclothingstore:setOutfit')
-AddEventHandler('vorpclothingstore:setOutfit', function(result)
+RegisterNetEvent('vorpclothingstore:setOutfit', function(result)
 	local _source = source
 	if result then
 		TriggerEvent("vorpcharacter:setPlayerCompChange", _source, result);
 	end
 end)
 
-RegisterNetEvent('vorpclothingstore:deleteOutfit')
-AddEventHandler('vorpclothingstore:deleteOutfit', function(outfitId)
+RegisterNetEvent('vorpclothingstore:deleteOutfit', function(outfitId)
 	local _source = source
 	local sid = nil
 	for _, v in pairs(GetPlayerIdentifiers(_source)) do

@@ -7,7 +7,7 @@ TriggerEvent("menuapi:getData",function(call)
     MenuData = call
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
 		local delayThread, playerPed = 500, PlayerPedId()
 		if initComplete and not inShop then
@@ -32,9 +32,9 @@ Citizen.CreateThread(function()
 				DrawText(_("PressGuide"), 0.5, 0.9, 0.7, 0.7, 255, 255, 255, 255, true, true);
 			end
 			if totalCost > 0 then; DrawText(_("CostOverlay") .. totalCost, 0.95, 0.9, 0.4, 0.4, 255, 250, 184, 255, false, true); end
-			
+
 			DisableAllControlActions(0)
-			
+
 			if IsControlJustPressed(0, 0x8FD015D8) or IsDisabledControlJustPressed(0, 0x8FD015D8) then
 				cameraIndex = cameraIndex + 1;
 				if (cameraIndex > 4) then
@@ -59,7 +59,7 @@ Citizen.CreateThread(function()
 				DressHeading = DressHeading - 1.0;
 				SetEntityHeading(playerPed, DressHeading);
 			end
-			
+
 			if IsPedDeadOrDying(playerPed) then
 				EmergencyCleanup()
 			end
@@ -68,26 +68,22 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterNetEvent("vorp:SelectedCharacter")
-AddEventHandler("vorp:SelectedCharacter", function()
+RegisterNetEvent("vorp:SelectedCharacter", function()
 	local pedModel = GetHashKey("S_M_M_Tailor_01")
 	LoadModel(pedModel)
 	Wait(1000)
 	BlipManager(true)
 end)
 
-RegisterNetEvent('vorpclothingstore:LoadYourCloths')
-AddEventHandler('vorpclothingstore:LoadYourCloths', function(comps, skin)
+RegisterNetEvent('vorpclothingstore:LoadYourCloths', function(comps, skin)
 	LoadYourCloths(comps, skin)
 end)
 
-RegisterNetEvent('vorpclothingstore:LoadYourOutfits')
-AddEventHandler('vorpclothingstore:LoadYourOutfits', function(result)
+RegisterNetEvent('vorpclothingstore:LoadYourOutfits', function(result)
 	LoadYourOutfits(result)
 end)
 
-RegisterNetEvent('vorpclothingstore:startBuyCloths')
-AddEventHandler('vorpclothingstore:startBuyCloths', function(state)
+RegisterNetEvent('vorpclothingstore:startBuyCloths', function(state)
 	startBuyCloths(state)
 end)
 
@@ -101,8 +97,8 @@ AddEventHandler('onResourceStop', function(resourceName)
 end)
 
 if Config.debugMode then -- Only called during debugMode being on, this is so we skip vorp:SelectedCharacter
-	Citizen.CreateThread(function()
-		Citizen.Wait(1000)
+	CreateThread(function()
+		Wait(1000)
 		local pedModel = GetHashKey("S_M_M_Tailor_01")
 		LoadModel(pedModel)
 		BlipManager(true)

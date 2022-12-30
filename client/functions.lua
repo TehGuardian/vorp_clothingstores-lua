@@ -175,7 +175,7 @@ function MoveToCoords(loc)
 
 	Citizen.Wait(1000);
 	NetworkSetInSpectatorMode(true, playerPed);
-	
+
 	DisplayRadar(false)
 	DisplayHud(false)
 	TriggerEvent("vorp:showUi", false)
@@ -493,7 +493,7 @@ function ClothingMenu()
 				catItem = CategoryRawNames[k], -- Ex. "RINGS_RH_MALE" > "RightRings"
 				dbName = CategoryClothesPlayer[CategoryRawNames[k]]	-- Ex. RingRh
 			}
-			
+
 			for k2,v2 in pairs(clothesPlayer) do
 				if k2 == elements[elmNum].dbName then
 					for y,z in pairs(ClothesUtils[elements[elmNum].rawName]) do
